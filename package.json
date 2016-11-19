@@ -1,0 +1,19 @@
+{
+  "name": "progetto2",
+  "version": "1.0.0",
+  "description": "progetto is2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatopancheri/SE2_16_172450_L4.git"
+  },
+  "author": "io",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renatopancheri/SE2_16_172450_L4/issues"
+  },
+  "homepage": "https://github.com/renatopancheri/SE2_16_172450_L4#readme"
+}
