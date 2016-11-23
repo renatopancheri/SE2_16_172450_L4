@@ -20,6 +20,7 @@ function main(request){
 			employee[max]=request;
 		}
 		else{
+			request.id=id;//se il parseInt ha tirato fuori un numero da una stringa che non è proprio un numero (es. "3u" diventa "3" , io voglio che nel vettore vada "3" e non "3u")
 			if(id>max){
 				max=id;
 			}
@@ -34,6 +35,11 @@ function main(request){
 		else{
 			if(request.hdelete=="true"){//l'utente ha premuto cancella
 				delete employee[id];
+				if(id==max){
+					while(employee[max]==undefined && max>0){//se ho eliminato l'ultimo elemento resetto il max
+						max--;
+					}
+				}
 				ret.classform='hidden';
 			}
 			else{
