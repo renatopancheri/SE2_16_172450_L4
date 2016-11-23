@@ -33,15 +33,7 @@ app.use('/', function(request, response)
     	var getVar = url_parts.query; //aggancio un nuovo attributo
 	var ret=employee.main(getVar);
 	bind.toFile('tpl/home.tpl',
-	{
-	serveraddress:ip+':'+port,
-        //set up parameters
-        id: ret.id,
-        name: ret.name,
-        surname : ret.surname,
-	level: ret.level,
-	salary: ret.salary
-    }, 
+	ret, 
     function(data) 
     {
         //write response
