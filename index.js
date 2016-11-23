@@ -15,9 +15,9 @@ var employee=require('./employee.js');
 var app = express();
 
 app.set('port', (process.env.PORT || port));
-app.use(express.static('client_files'));
+app.use(express.static('client_files'));//per le richieste di specifici files( /* ---> /client_files/*)
 //use: for both POST and GET
-app.use('/', function(request, response) 
+app.use('/', function(request, response) //uso solo il get perché ho solo un singolo form
 {
     //set the headers of the responce
     var headers = {};
@@ -30,8 +30,8 @@ app.use('/', function(request, response)
     headers["Content-Type"] = "text/html";//format response
     response.writeHead(200, headers);
 	var url_parts = url.parse(request.url, true);
-    	var getVar = url_parts.query; //aggancio un nuovo attributo
-	var ret=employee.main(getVar);
+    	var getVar = url_parts.query; //parsing dei parametri
+	var ret=employee.main(getVar);//chiamo la mia funzione main che lavora i parametri in ingresso e restituisce un oggetto con tutti i valori necessari per creare il template corretto
 	bind.toFile('tpl/home.tpl',
 	ret, 
     function(data) 
